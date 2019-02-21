@@ -2,7 +2,7 @@ var interval = null;
 
 function doStuff() {
     if (interval == null) {
-        interval = setInterval(moveStuff, 20);
+        interval = setInterval(moveStuff, 2);
     } else {
         clearInterval(interval);
         interval = null;
@@ -15,8 +15,14 @@ function moveStuff() {
 
     // move nodes based on velocity
     nodesArray.forEach( n => {
-        n.vx *= 0.9;
-        n.vy *= 0.9;
+        n.vx *= 0.8;
+        n.vy *= 0.8;
+        if (Math.abs(n.vx) > 100) {
+            n.vx *= 100 / Math.abs(n.vx);
+        }
+        if (Math.abs(n.vy) > 100) {
+            n.vy *= 100 / Math.abs(n.vy);
+        }        
         n.x += n.vx; 
         n.y += n.vy; 
     } );
@@ -30,7 +36,7 @@ function moveStuff() {
         let deltax = firstx-secondx;
         let deltay = firsty-secondy;
         let distance = Math.sqrt(deltax*deltax + deltay*deltay);
-        let force = (distance - 100)*0.01 // spring force
+        let force = (distance - 100)*0.005 // spring force
         nodesDict[e.second].vx += force * deltax / distance;
         nodesDict[e.first].vx -= force * deltax / distance;
         nodesDict[e.second].vy += force * deltay / distance;
@@ -47,9 +53,9 @@ function moveStuff() {
             let deltax = firstx-secondx;
             let deltay = firsty-secondy;
             let distance = Math.sqrt(deltax*deltax + deltay*deltay);
-            let force = -10000 / (distance * distance) // inverse square law (like charges)
-            if (force < -100000) {
-                force = -100000;
+            let force = -100000 / (distance * distance) // inverse square law (like charges)
+            if (force < -1000000) {
+                force = -1000000;
             }
             nodesArray[j].vx += force * deltax / distance;
             nodesArray[i].vx -= force * deltax / distance;

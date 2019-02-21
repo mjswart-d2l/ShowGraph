@@ -13,12 +13,19 @@
     <script src="nodesArray.js"></script>
     <script src="edgesArray.js"></script>
     <script src="doStuff.js"></script>
+    <script src="mouseHandlers.js"></script>
+    <script src="toggleLabels.js"></script>
 </head>
 <body>
-    <button onclick="doStuff(svg, nodesArray, edgesArray)">bump</button><br/>
-  <script>
+    <button onclick="doStuff(svg, nodesArray, edgesArray)">bump</button>
+    <button onclick="toggleLabels()">labels</button></br>
+<script>
 
-const w = 1600, h = 1000;
+var scale = 0.05;
+var translatex = 0.0;
+var translatey = 0.0;
+
+const w = 3200, h = 2000;
 var svg = d3.select('body')
             .append('svg')
             .attr('width', w)
