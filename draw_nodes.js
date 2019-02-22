@@ -44,7 +44,7 @@ function update_nodes (nodes) {
     nodes.attrs({
         cx: d => scale * d.x + translatex,
         cy: d => scale * d.y + translatey,
-        r: d => 4,
+        r: d => 2,
         fill: '#333'
     });
 }
@@ -63,6 +63,6 @@ function update_lines ( lines, nodesDict ) {
         y1: e => scale * nodesDict[e.first].y + translatey,
         x2: e => scale * nodesDict[e.second].x + translatex,
         y2: e => scale * nodesDict[e.second].y + translatey,
-        style: "stroke:#555;stroke-width:2"
+        style: "stroke:#555;stroke-width:1"
     });
 }

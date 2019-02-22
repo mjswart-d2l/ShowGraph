@@ -37,5 +37,4 @@ function mouseMoveHandler (event) {
 document.addEventListener('wheel', wheelHandler);
 document.addEventListener('mousedown', mousedownHandler);
 document.addEventListener('mouseup', mouseupHandler);
-document.addEventListener('mouseout', mouseupHandler);
 document.addEventListener('mousemove', mouseMoveHandler);
