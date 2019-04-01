@@ -39,6 +39,9 @@ function load() {
         if (tables.length < 2) {
             continue;
         }
+        if (tables[0] == tables[1]) {
+            continue;
+        }
         let edge = {
             first: tables[0],
             second: tables[1]
