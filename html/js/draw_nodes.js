@@ -1,5 +1,4 @@
-function draw_nodes(svg, nodesArray, edgesArray)
-{
+function draw_nodes(svg, nodesArray, edgesArray) {
     var nodesDict = {};
     nodesArray.forEach( x => nodesDict[x.text] = x);
 
@@ -52,8 +51,8 @@ function update_nodes (nodes) {
 function update_labels (labels) {
     labels.text(d => d.text)
     .attrs({
-      x: (d) => scale * d.x + translatex,
-      y: (d) => scale * d.y + translatey + 5
+      x: (d) => scale * d.x + translatex + 6,
+      y: (d) => scale * d.y + translatey + 3
     });
 }
 
@@ -63,6 +62,24 @@ function update_lines ( lines, nodesDict ) {
         y1: e => scale * nodesDict[e.first].y + translatey,
         x2: e => scale * nodesDict[e.second].x + translatex,
         y2: e => scale * nodesDict[e.second].y + translatey,
-        style: "stroke:#555;stroke-width:1"
+        style: "stroke:#999;stroke-width:1"
     });
+}
+
+var showLabels = false;
+
+function toggle_labels() {
+    showLabels = !showLabels;
+    if (showLabels) {
+        document.getElementById('labels_button').innerHTML = "Hide Labels";
+        let labels = svg.selectAll('text')
+                        .data(nodesArray)
+                        .enter()
+                        .append('text');
+        update_labels(labels);
+    } else {
+        document.getElementById('labels_button').innerHTML = "Show Labels";
+        svg.selectAll('text')
+           .remove();        
+    }        
 }

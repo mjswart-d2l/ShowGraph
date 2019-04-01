@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Show Graph</title>
+  <link rel="stylesheet" type="text/css" href="css/my.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <script src="js/d3.v4.min.js"></script>
+  <script src="js/d3-selection-multi.v1.min.js"></script>
+  <script src="js/load_and_go.js"></script>
+  <script src="js/draw_nodes.js"></script>
+</head>
+<body>
+  <div id="container" >
+    <H1>Show Graph</H1>
+    <div id="the_form" class="col-md-12">
+      <div style="margin-bottom:15px">Paste in the results of that query and hit Go</div>
+      <div>
+        <textarea id="tablePairsText" rows="10" spellcheck="false"></textarea>
+      </div>
+    </div>
+    <div id="buttons">
+      <button id="load_and_go_button" class="btn btn-success" onclick="load_and_go()">Go</button>
+      <button id="go_button" class="btn btn-success" onclick="go()">Go</button>
+      <button id="pause_button" class="btn btn-success" onclick="pause()">Pause</button>
+      <button id="labels_button" class="btn btn-success" onclick="toggle_labels()">Show Labels</button>
+    </div>
+  </div>
+  <div id="my_canvas">
+    <svg id="my_svg"></svg>
+  </div>
+<script>
+  var scale = 0.05;
+  var translatex = 0.0;
+  var translatey = 0.0;
+  var svg = d3.select("#my_svg");
+
+</script>
+</body>
+</html>

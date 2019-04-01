@@ -1,0 +1,36 @@
+text {
+  font-family: sans-serif;
+  font-size: 10px;
+}
+
+textarea {
+  width: 100%;
+  margin: 5px;
+}
+
+#container {
+  width: 1000px;
+  margin: auto;
+}
+
+#my_canvas {
+  width: 1000px;
+  height: 700px;
+  margin:auto;
+  border: lightgray 1px solid;
+  clear: both;
+  display: none;
+}
+
+#my_svg {
+  width: 1000px;
+  height: 700px;
+}
+
+#pause_button, #labels_button, #go_button {
+  display: none
+}
+
+#buttons {
+  margin: 5px
+}
