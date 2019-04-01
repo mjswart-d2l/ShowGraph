@@ -1,4 +1,3 @@
-
 function load_and_go() {
     
     load(); 
@@ -9,10 +8,25 @@ function load_and_go() {
     document.getElementById('labels_button').style.display = "inline";
     document.getElementById('load_and_go_button').style.display = "none";
     
+    do_zoom();
+
     draw_nodes(svg, nodesArray, edgesArray);
     
     var zoom = d3.zoom();
     go();
+}
+
+function do_zoom() {
+    svg.call( d3.zoom()
+        .scaleExtent([1/10, 10])
+        .on ("zoom", zoomed));    
+}
+
+function zoomed() {
+    scale = d3.event.transform.k * 0.05;
+    translatex = d3.event.transform.x;
+    translatey = d3.event.transform.y;
+    redraw_nodes(svg, nodesArray, edgesArray);
 }
 
 var edgesArray = [];

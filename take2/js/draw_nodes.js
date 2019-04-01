@@ -51,8 +51,8 @@ function update_nodes (nodes) {
 function update_labels (labels) {
     labels.text(d => d.text)
     .attrs({
-      x: (d) => scale * d.x + translatex,
-      y: (d) => scale * d.y + translatey + 5
+      x: (d) => scale * d.x + translatex + 6,
+      y: (d) => scale * d.y + translatey + 3
     });
 }
 
@@ -64,4 +64,20 @@ function update_lines ( lines, nodesDict ) {
         y2: e => scale * nodesDict[e.second].y + translatey,
         style: "stroke:#555;stroke-width:1"
     });
+}
+
+var showLabels = false;
+
+function toggle_labels() {
+    showLabels = !showLabels;
+    if (showLabels) {
+        let labels = svg.selectAll('text')
+                        .data(nodesArray)
+                        .enter()
+                        .append('text');
+        update_labels(labels);
+    } else {
+        svg.selectAll('text')
+           .remove();        
+    }        
 }
