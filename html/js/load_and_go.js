@@ -68,7 +68,7 @@ function go() {
     document.getElementById('pause_button').style.display = "inline";
 
     if (interval == null) {
-        interval = setInterval(moveStuff, 20);
+        interval = setInterval(moveStuff, 2);
     } 
 }
 
