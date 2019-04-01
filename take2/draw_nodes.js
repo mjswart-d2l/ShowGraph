@@ -1,5 +1,4 @@
-function draw_nodes(svg, nodesArray, edgesArray)
-{
+function draw_nodes(svg, nodesArray, edgesArray) {
     var nodesDict = {};
     nodesArray.forEach( x => nodesDict[x.text] = x);
 

@@ -1,13 +1,56 @@
-var interval = null;
 
-function doStuff() {
+function load_and_go() {
+    
+    load(); 
+    
+    // show the canvas, hide the form
+    let the_form = document.getElementById("the_form");
+    the_form.style.display = "none";
+    let canvas = document.getElementById("my_canvas");
+    canvas.style.display = "block";
+    
+    draw_nodes(svg, nodesArray, edgesArray);
+    
+    go();
+}
+
+var edgesArray = [];
+var nodesArray = [];
+function load() {
+    let form_txt = document.getElementById("tablePairsText").value;
+    let lines = form_txt.split( '\n' );
+    for (var i=0; i<lines.length; i++) {
+        tables = lines[i].split( /\s+/ );
+        let edge = {
+            first: tables[0],
+            second: tables[1]
+        };
+        edgesArray.push( edge );        
+    }
+    var tableNames = edgesArray.map( x => x.first );
+    tableNames = tableNames.concat( edgesArray.map( x => x.second ) );
+    nodesArray = Array.from(new Set(tableNames))
+                      .map(name => {
+                          return {
+                              x: (Math.random() * 1000), 
+                              y: (Math.random() * 700), 
+                              r: 10, 
+                              text: name, 
+                              vx: 10, 
+                              vy: 10 };
+                      });
+}
+
+var interval = null;
+function go() {
     if (interval == null) {
-        interval = setInterval(moveStuff, 2);
+        interval = setInterval(moveStuff, 20);
     } else {
         clearInterval(interval);
         interval = null;
     }
 }
+
 
 function moveStuff() {    
     let nodesDict = {};

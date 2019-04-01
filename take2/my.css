@@ -1,0 +1,19 @@
+
+textarea {
+  width: 100%;
+  padding: 5px;
+}
+
+#container {
+  width: 1000px;
+  margin: auto;
+}
+
+#my_canvas {
+  width: 1000px;
+  height: 700px;
+  margin:auto;
+  border: lightgray 1px solid;
+  clear: both;
+  display: none;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.min.js"></script>
+    <script src="https://d3js.org/d3-selection-multi.v1.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Graph</title>
+    <link rel="stylesheet" type="text/css" href="c:\git\viz\take2\my.css">
+    <link rel="stylesheet" type="text/css" href="c:\git\viz\take2\bootstrap.min.css">
+    <script src="c:\git\viz\take2\load_and_go.js"></script>
+    <script src="c:\git\viz\take2\draw_nodes.js"></script>
+    <script src="c:\git\viz\take2\toggleLabels.js"></script> 
+</head>
+<body>
+  <div id="container" >
+    <H1>Explore Graph</H1>
+    <div id="the_form" class="col-md-12">
+      <div>Paste in the results of that query and hit Go</div>
+      <div>
+        <textarea id="tablePairsText" rows="10"></textarea>
+      </div>
+      <div>
+        <button 
+          class="btn"
+          onclick="load_and_go()">
+          Go
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="my_canvas">
+    <svg id="my_svg"></svg>
+  </div>
+<script>
+  var scale = 0.05;
+  var translatex = 0.0;
+  var translatey = 0.0;
+  var svg = d3.select("#my_svg");
+
+</script>
+</body>
+</html>
