@@ -3,14 +3,15 @@ function load_and_go() {
     
     load(); 
     
-    // show the canvas, hide the form
-    let the_form = document.getElementById("the_form");
-    the_form.style.display = "none";
-    let canvas = document.getElementById("my_canvas");
-    canvas.style.display = "block";
+    // show and hide
+    document.getElementById('the_form').style.display = "none";
+    document.getElementById('my_canvas').style.display = "block";
+    document.getElementById('labels_button').style.display = "inline";
+    document.getElementById('load_and_go_button').style.display = "none";
     
     draw_nodes(svg, nodesArray, edgesArray);
     
+    var zoom = d3.zoom();
     go();
 }
 
@@ -32,8 +33,8 @@ function load() {
     nodesArray = Array.from(new Set(tableNames))
                       .map(name => {
                           return {
-                              x: (Math.random() * 1000), 
-                              y: (Math.random() * 700), 
+                              x: (Math.random() * 1000) / scale, 
+                              y: (Math.random() * 700) / scale, 
                               r: 10, 
                               text: name, 
                               vx: 10, 
@@ -43,14 +44,21 @@ function load() {
 
 var interval = null;
 function go() {
+    document.getElementById('go_button').style.display = "none";
+    document.getElementById('pause_button').style.display = "inline";
+
     if (interval == null) {
         interval = setInterval(moveStuff, 20);
-    } else {
-        clearInterval(interval);
-        interval = null;
-    }
+    } 
 }
 
+function pause() {
+    document.getElementById('go_button').style.display = "inline";
+    document.getElementById('pause_button').style.display = "none";
+    
+    clearInterval(interval);
+    interval = null;
+}
 
 function moveStuff() {    
     let nodesDict = {};

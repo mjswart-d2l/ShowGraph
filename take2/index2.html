@@ -15,17 +15,16 @@
   <div id="container" >
     <H1>Explore Graph</H1>
     <div id="the_form" class="col-md-12">
-      <div>Paste in the results of that query and hit Go</div>
+      <div style="margin-bottom:15px">Paste in the results of that query and hit Go</div>
       <div>
         <textarea id="tablePairsText" rows="10"></textarea>
       </div>
-      <div>
-        <button 
-          class="btn"
-          onclick="load_and_go()">
-          Go
-        </button>
-      </div>
+    </div>
+    <div id="buttons">
+      <button id="load_and_go_button" class="btn btn-success" onclick="load_and_go()">Go</button>
+      <button id="go_button" class="btn btn-success" onclick="go()">Go</button>
+      <button id="pause_button" class="btn btn-success" onclick="pause()">Pause</button>
+      <button id="labels_button" class="btn btn-success" onclick="toggle_labels()">Labels</button>
     </div>
   </div>
   <div id="my_canvas">

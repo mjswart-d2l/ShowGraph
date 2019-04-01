@@ -1,6 +1,6 @@
 var showLabels = false;
 
-function toggleLabels() {
+function toggle_labels() {
     showLabels = !showLabels;
     if (showLabels) {
         let labels = svg.selectAll('text')

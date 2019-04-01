@@ -1,7 +1,7 @@
 
 textarea {
   width: 100%;
-  padding: 5px;
+  margin: 5px;
 }
 
 #container {
@@ -16,4 +16,17 @@ textarea {
   border: lightgray 1px solid;
   clear: both;
   display: none;
+}
+
+#my_svg {
+  width: 1000px;
+  height: 700px;
+}
+
+#pause_button, #labels_button, #go_button {
+  display: none
+}
+
+#buttons {
+  margin: 5px
 }
