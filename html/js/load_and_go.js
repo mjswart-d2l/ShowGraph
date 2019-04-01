@@ -36,6 +36,9 @@ function load() {
     let lines = form_txt.split( '\n' );
     for (var i=0; i<lines.length; i++) {
         tables = lines[i].split( /\s+/ );
+        if (tables.length < 2) {
+            continue;
+        }
         let edge = {
             first: tables[0],
             second: tables[1]
